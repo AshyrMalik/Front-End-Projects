@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# Friends Expense Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a simple React application that displays a list of friends and their current balance with you. The app categorizes the balances to show whether you owe money to a friend, the friend owes you money, or if the balance is even.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Displays a list of friends with their:
+  - Name
+  - Profile picture
+  - Balance status
+- Visual indicators for:
+  - Negative balance: You owe the friend money.
+  - Positive balance: The friend owes you money.
+  - Zero balance: You are even with the friend.
+  
+## Demo
 
-### `npm start`
+Here’s an example of what the application looks like:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Negative Balance**: *You owe $7 to Clark.*
+- **Positive Balance**: *Sarah owes you $20.*
+- **Zero Balance**: *You and Anthony are even.*
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation and Setup
 
-### `npm test`
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/friends-expense-tracker.git
+   cd friends-expense-tracker
+   ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-### `npm run build`
+3. Start the development server:
+   ```bash
+   npm start
+   ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Open your browser and visit:
+   ```
+   http://localhost:3000
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Components Overview
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **`App`**: The main component that structures the app.
+- **`FriendList`**: Renders a list of friends using the `Friend` component.
+- **`Friend`**: Displays details about each friend, including their name, image, and balance status.
+- **`AddFriends`**: Placeholder for a button to add new friends (to be implemented).
 
-### `npm run eject`
+## Data Structure
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The app uses an array of objects to represent friends:
+```javascript
+const initialFriends = [
+  {
+    id: 118836,
+    name: "Clark",
+    image: "https://i.pravatar.cc/48?u=118836",
+    balance: -7,
+  },
+  {
+    id: 933372,
+    name: "Sarah",
+    image: "https://i.pravatar.cc/48?u=933372",
+    balance: 20,
+  },
+  {
+    id: 499476,
+    name: "Anthony",
+    image: "https://i.pravatar.cc/48?u=499476",
+    balance: 0,
+  },
+];
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Future Enhancements
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Add functionality to add new friends.
+- Enable editing and deleting friends.
+- Integrate a backend to persist data.
+- Add styles to improve the visual presentation.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Technologies Used
 
-## Learn More
+- **React**: For building the UI.
+- **CSS**: For basic styling (you can extend the styles in the project).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Contribution
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Feel free to contribute to this project! Here's how you can help:
+1. Fork the repository.
+2. Create a new branch:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add your message here"
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature-name
+   ```
+5. Open a Pull Request.
 
-### Code Splitting
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This project is open-source and available under the [MIT License](LICENSE).
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Happy Coding! 🎉
