@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Quiz Application</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+        .question {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+        .answers {
+            list-style-type: none;
+            padding: 0;
+        }
+        .answers li {
+            margin-bottom: 10px;
+        }
+        .answers input[type="radio"] {
+            margin-right: 10px;
+        }
+        .navigation {
+            margin-top: 20px;
+        }
+        .navigation button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        .score {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+        .timer {
+            font-size: 1.2em;
+            margin-top: 10px;
+            color: red;
+        }
+        button{
+            color: #111111;
+            padding :15px;
+            font-size: 20px;
+            margin: 15px;
+            border-radius: 20%;
+            border-style: none;
+            background: #28e667;
+            cursor: pointer;
+        }
+        button:hover{
+            transform: translateY(5px);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="quiz">
+            <button class="button" id="Start" onclick="startQuiz()">Start Quiz</button>
+            <div class="question" id="question"></div>
+            <ul class="answers" id="answers"></ul>
+            <div class="navigation">
+                <button onclick="previousQuestion()">Previous</button>
+                <button onclick="nextQuestion()">Next</button>
+            </div>
+        </div>
+        <div class="score" id="score"></div>
+        <div class="timer" id="timer"></div> 
+    </div>
+    <script src="script.js"></script>
+<!-- 
+    <script>   
+        const quizData = [
+            {
+                question: "What is the capital of France?",
+                answers: {
+                    a: "Berlin",
+                    b: "Madrid",
+                    c: "Paris",
+                    d: "Lisbon"
+                },
+                correct: "c"
+            },
+            {
+                question: "Who wrote 'To Kill a Mockingbird'?",
+                answers: {
+                    a: "Harper Lee",
+                    b: "Mark Twain",
+                    c: "Ernest Hemingway",
+                    d: "F. Scott Fitzgerald"
+                },
+                correct: "a"
+            },
+            // Add more questions here
+        ];
+        
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let timer;
+        const questionElement = document.getElementById('question');
+        const answersElement = document.getElementById('answers');
+        const scoreElement = document.getElementById('score');
+        const timerElement = document.getElementById('timer');
+        
+        function startQuiz() {
+            displayQuestion();
+            startTimer();
+        }
+        
+        function displayQuestion() {
+            const currentQuestion = quizData[currentQuestionIndex];
+            questionElement.innerText = currentQuestion.question;
+            answersElement.innerHTML = '';
+            for (let key in currentQuestion.answers) {
+                const answer = currentQuestion.answers[key];
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <label>
+                        <input type="radio" name="answer" value="${key}">
+                        ${answer}
+                    </label>
+                `;
+                answersElement.appendChild(li);
+            }
+        }
+        
+        function nextQuestion() {
+            const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+            if (selectedAnswer) {
+                if (selectedAnswer.value === quizData[currentQuestionIndex].correct) {
+                    score++;
+                }
+                currentQuestionIndex++;
+                if (currentQuestionIndex < quizData.length) {
+                    displayQuestion();
+                    resetTimer();
+                } else {
+                    endQuiz();
+                }
+            } else {
+                alert("Please select an answer before proceeding.");
+            }
+        }
+        
+        function previousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                displayQuestion();
+                resetTimer();
+            }
+        }
+        
+        function endQuiz() {
+            questionElement.innerText = "Quiz Completed!";
+            answersElement.innerHTML = '';
+            scoreElement.innerText = `Your score: ${score} out of ${quizData.length}`;
+            clearInterval(timer);
+        }
+        
+        function startTimer() {
+            let timeLeft = 30;
+            timerElement.innerText = `Time left: ${timeLeft} seconds`;
+            timer = setInterval(() => {
+                timeLeft--;
+                timerElement.innerText = `Time left: ${timeLeft} seconds`;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    nextQuestion();
+                }
+            }, 1000);
+        }
+        
+        function resetTimer() {
+            clearInterval(timer);
+            startTimer();
+        }
+        
+        document.addEventListener('DOMContentLoaded', startQuiz);
+         </script> -->
+</body>
+</html>
