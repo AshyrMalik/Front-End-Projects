@@ -1,4 +1,4 @@
-# Friends Expense Tracker
+# EatnSplit
 
 This is a simple React application that displays a list of friends and their current balance with you. The app categorizes the balances to show whether you owe money to a friend, the friend owes you money, or if the balance is even.
 
